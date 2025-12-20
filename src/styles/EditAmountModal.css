@@ -11,16 +11,25 @@
   z-index: 100;
 }
 
-.modal {
+/* ===== EDIT CASH MODAL ===== */
+
+.edit-cash-modal {
   padding: 1rem;
   border-radius: 6px;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.modal h2 {
+.edit-cash-modal h2 {
   margin-bottom: 1rem;
 }
 
-.modal input {
+.edit-cash-modal input {
   border-radius: 6px;
+}
+
+.edit-cash-modal .buttons-container {
+  justify-content: space-between;
 }

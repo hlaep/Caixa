@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { formatBRL } from "../utilities";
 
-export default function Cashier({ setShowEditAmount, setEditionType }) {
+export default function Cashier({
+  setShowEditAmount,
+  setEditionType,
+  setShowAddSale,
+}) {
   const [cash, setCash] = useState(0);
-  const showEditAmount = () => {
-    setEditionType("add");
-    setShowEditAmount(true);
-  };
 
-  const showRemoveAmount = () => {
-    setEditionType("remove");
-    setShowEditAmount(true);
+  const showModal = (modalType) => {
+    if (modalType === "add" || modalType === "remove") {
+      setEditionType(modalType);
+      setShowEditAmount(true);
+    } else if (modalType === "sale") {
+      setShowAddSale(true);
+    } else {
+      throw new Error(`Invalid modal type: ${modalType}`);
+    }
   };
 
   return (
@@ -20,8 +26,9 @@ export default function Cashier({ setShowEditAmount, setEditionType }) {
         <p>{formatBRL(cash)}</p>
       </div>
       <div className="buttons-container">
-        <button onClick={() => showEditAmount()}>Depositar valor</button>
-        <button onClick={() => showRemoveAmount()}>Retirar valor</button>
+        <button onClick={() => showModal("add")}>Depositar valor</button>
+        <button onClick={() => showModal("remove")}>Retirar valor</button>
+        <button onClick={() => showModal("sale")}>Registrar venda</button>
       </div>
     </div>
   );
