@@ -3,27 +3,28 @@ import Cashier from "./components/Cashier.jsx";
 import EditAmountModal from "./components/EditAmountModal.jsx";
 import "./styles/App.css";
 import AddSaleModal from "./components/AddSaleModal.jsx";
+import History from "./components/History.jsx";
 
 export default function App() {
-  const [showEditAmount, setShowEditAmount] = useState(false);
+  const [showEditCash, setShowEditCash] = useState(false);
   const [showAddSale, setShowAddSale] = useState(false);
-  const [editionType, setEditionType] = useState("");
+  const [cashEditionType, setCashEditionType] = useState("");
   return (
     <>
       <Cashier
-        setShowEditAmount={setShowEditAmount}
-        setEditionType={setEditionType}
+        setShowEditCash={setShowEditCash}
+        setCashEditionType={setCashEditionType}
         setShowAddSale={setShowAddSale}
       />
-      {showEditAmount && (
+      {showEditCash && (
         <EditAmountModal
-          setShowEditAmount={setShowEditAmount}
-          editionType={editionType}
+          setShowEditCash={setShowEditCash}
+          cashEditionType={cashEditionType}
         />
       )}
       {showAddSale && <AddSaleModal setShowAddSale={setShowAddSale} />}
 
-      <h2>Histórico (depósitos, retiradas e vendas)</h2>
+      <History />
     </>
   );
 }

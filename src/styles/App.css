@@ -52,3 +52,17 @@ body {
 .info p {
   font-size: 1.4rem;
 }
+
+/* ===== HISTORY ===== */
+
+.history img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.history header {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+}

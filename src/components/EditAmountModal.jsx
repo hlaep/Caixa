@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/EditAmountModal.css";
 
-export default function EditAmountModal({ setShowEditAmount, editionType }) {
+export default function EditAmountModal({ setShowEditCash, cashEditionType }) {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
 
@@ -19,23 +19,23 @@ export default function EditAmountModal({ setShowEditAmount, editionType }) {
   };
 
   const closeModal = () => {
-    setShowEditAmount(false);
+    setShowEditCash(false);
     setAmount("");
     setDescription("");
   };
 
-  const editCash = (event, editionType) => {
+  const editCash = (event, cashEditionType) => {
     event.preventDefault();
-    console.log("mock", editionType, amount, new Date(), description);
+    console.log("mock", cashEditionType, amount, new Date(), description);
     closeModal();
   };
   return (
     <div className="modal-wrapper">
       <form
-        onSubmit={(e) => editCash(e, editionType)}
+        onSubmit={(e) => editCash(e, cashEditionType)}
         className="edit-cash-modal"
       >
-        <h2>{editionType === "add" ? "Depositar" : "Retirar"} valor</h2>
+        <h2>{cashEditionType === "add" ? "Depositar" : "Retirar"} valor</h2>
 
         <input
           placeholder="00,00"

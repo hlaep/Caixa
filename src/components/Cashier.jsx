@@ -2,16 +2,16 @@ import { useState } from "react";
 import { formatBRL } from "../utilities";
 
 export default function Cashier({
-  setShowEditAmount,
-  setEditionType,
+  setShowEditCash,
+  setCashEditionType,
   setShowAddSale,
 }) {
   const [cash, setCash] = useState(0);
 
   const showModal = (modalType) => {
     if (modalType === "add" || modalType === "remove") {
-      setEditionType(modalType);
-      setShowEditAmount(true);
+      setCashEditionType(modalType);
+      setShowEditCash(true);
     } else if (modalType === "sale") {
       setShowAddSale(true);
     } else {
