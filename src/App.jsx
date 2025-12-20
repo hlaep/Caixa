@@ -1,22 +1,23 @@
 import { useState } from "react";
+import Cashier from "./components/Cashier.jsx";
+import EditAmountModal from "./components/EditAmountModal.jsx";
+import "./styles/App.css";
 
-import "./App.css";
-
-function App() {
+export default function App() {
+  const [showEditAmount, setShowEditAmount] = useState(false);
+  const [editionType, setEditionType] = useState("");
   return (
     <>
-      <div className="cashier">
-        <div className="info">
-          <h2>Valor em caixa:</h2>
-          <p>R$ 99,00</p>
-        </div>
-        <div className="edit-buttons">
-          <button>Depositar valor</button>
-          <button>Retirar valor</button>
-        </div>
-      </div>
+      <Cashier
+        setShowEditAmount={setShowEditAmount}
+        setEditionType={setEditionType}
+      />
+      {showEditAmount && (
+        <EditAmountModal
+          setShowEditAmount={setShowEditAmount}
+          editionType={editionType}
+        />
+      )}
     </>
   );
 }
-
-export default App;
