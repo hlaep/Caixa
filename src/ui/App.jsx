@@ -23,7 +23,6 @@ export default function App() {
         />
       )}
       {showAddSale && <AddSaleModal setShowAddSale={setShowAddSale} />}
-
       <History />
     </>
   );
