@@ -9,6 +9,9 @@ export default function App() {
   const [showEditCash, setShowEditCash] = useState(false);
   const [showAddSale, setShowAddSale] = useState(false);
   const [cashEditionType, setCashEditionType] = useState("");
+
+  window.electron.getStaticData();
+
   return (
     <>
       <Cashier
